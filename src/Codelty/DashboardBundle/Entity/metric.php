@@ -34,6 +34,16 @@ class metric
      */
     private $metricType;
 
+    /**
+     * @ORM\OneToMany(targetEntity="threshold", mappedBy="metric")
+     */
+    protected $threshold;
+
+    public function __construct()
+    {
+        $this->threshold = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -89,5 +99,48 @@ class metric
     public function getMetricType()
     {
         return $this->metricType;
+    }
+
+    /**
+     * Add threshold
+     *
+     * @param \Codelty\DashboardBundle\Entity\threshold $threshold
+     * @return Client
+     */
+    public function addArrFilters(\Codelty\DashboardBundle\Entity\threshold $threshold)
+    {
+        $this->threshold[] = $threshold;
+    
+        return $this;
+    }
+
+    /**
+     * Remove threshold
+     *
+     * @param \Codelty\DashboardBundle\Entity\threshold $threshold
+     */
+    public function removeArrFilters(\Codelty\DashboardBundle\Entity\threshold $threshold)
+    {
+        $this->threshold->removeElement($threshold);
+    }
+
+    /**
+     * Get threshold
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArrFilters()
+    {
+        return $this->threshold;
+    }
+
+    /**
+     * Get metricType
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return $this->metric;
     }
 }

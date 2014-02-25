@@ -28,6 +28,12 @@ class threshold
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="metric", inversedBy="threshold")
+     * @ORM\JoinColumn(name="metric_id", referencedColumnName="id")
+     */
+    protected $metric;
+
 
     /**
      * Get id
@@ -60,5 +66,28 @@ class threshold
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set metric
+     *
+     * @param \Codelty\DashboardBundle\Entity\metric $metric
+     * @return Client
+     */
+    public function setMetricType(\Codelty\DashboardBundle\Entity\metric $metric = null)
+    {
+        $this->metric = $metric;
+    
+        return $this;
+    }
+
+    /**
+     * Get metric
+     *
+     * @return \Codelty\DashboardBundle\Entity\metric 
+     */
+    public function getMetricType()
+    {
+        return $this->metric;
     }
 }

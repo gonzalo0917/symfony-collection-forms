@@ -16,6 +16,10 @@ class thresholdType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('metricType', 'entity', array(
+              'class' => 'Codelty\DashboardBundle\Entity\metric',
+              'label' => 'Metric',
+            ))
         ;
     }
     

@@ -112,6 +112,6 @@ class metricType
      */
     public function getArrFilters()
     {
-        return $this->metric;
+        return $this->metricType;
     }
 }
