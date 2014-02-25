@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="body-dashboard">
+    <h1>Dashboard edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_errors(edit_form) }}
+     
+        {{ form_row(edit_form.pageTitle) }}
+        {{ form_row(edit_form.gameTitle) }}
+        {{ form_row(edit_form.platform) }}
+
+        <div class="arrFilters" data-prototype="{{ form_widget(edit_form.arrFilters.vars.prototype)|e }}" filterCount = '{{ edit_form.arrFilters | length }}'>
+          <h1>Filters</h1>
+          {% for filter in edit_form.arrFilters %}
+              {{ form_row(filter.filter) }}
+          {% endfor %}
+        </div>  
+
+    {{ form_end(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('dashboard') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+</div> 
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('bundles/codeltydashboard/js/dashboard.js') }}" type="text/javascript"></script>
+{% endblock %}

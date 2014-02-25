@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>  
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/codeltydashboard/css/flat-ui.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/codeltydashboard/bootstrap/css/bootstrap.css') }}">    
+    <script type="text/javascript" src="{{ asset('bundles/codeltydashboard/js/jquery-1.11.0.min.js') }}"></script>
+
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+  </body>
+
+</html>

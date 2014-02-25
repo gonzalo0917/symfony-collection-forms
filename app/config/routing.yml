@@ -1,0 +1,5 @@
+codelty_dashboard:
+    resource: "@CodeltyDashboardBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
